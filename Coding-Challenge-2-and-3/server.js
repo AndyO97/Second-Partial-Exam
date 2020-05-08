@@ -2,6 +2,7 @@ const express = require( 'express' );
 const bodyParser = require( 'body-parser' );
 const mongoose = require( 'mongoose' );
 const jsonParser = bodyParser.json();
+const {SportsController} = require('./models/sport-model')
 const { DATABASE_URL, PORT } = require( './config' );
 
 
@@ -27,7 +28,7 @@ app.delete('/sports/delete', jsonParser, (req, res) =>{
         res.statusMessage = `The id on the body and the parameters dont match`;
         return res.status(409).end();
     }
-    
+
 
     SportController
         .remove(id)
