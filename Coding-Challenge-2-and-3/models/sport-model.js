@@ -3,9 +3,16 @@ const uuid = require( 'uuid' );
 
 /* Your code goes here */
 let sportCollection = mongoose.Schema({
-    id: uuid.v4(),
-    name: String,
-    num_players: Number
+    id: {
+        type: String,
+        unique: true,
+    },
+    name: {
+        type: String
+    },
+    num_players: {
+        type: Number
+    }
 })
 
 let Sports = mongoose.model('sport', sportCollection);
